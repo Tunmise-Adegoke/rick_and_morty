@@ -1,74 +1,94 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:rick_and_morty/controller/getx_controller.dart';
+import 'package:rick_and_morty/controller/character_controller.dart';
 import 'package:rick_and_morty/model/charaters.dart';
+import 'package:rick_and_morty/model/episodes.dart';
+import 'package:rick_and_morty/model/location.dart';
+import 'package:rick_and_morty/screen/details_page.dart';
+import 'package:rick_and_morty/util/app_colors.dart';
 import 'package:rick_and_morty/util/constant.dart';
+import 'package:sizer/sizer.dart';
 
 class CharacterCard extends StatelessWidget {
   final Character character;
   final int index;
-  final RickAndMortyController rickAndMortyController =
-      Get.put(RickAndMortyController());
+  final Location location;
+  final Episodes episode;
+  final CharacterController characterController =
+      Get.put(CharacterController());
   CharacterCard({
     Key? key,
     required this.character,
     required this.index,
+    required this.location,
+    required this.episode,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.lightBlueAccent,
-        borderRadius: BorderRadius.circular(30),
-        border: Border.all(
-          color: Colors.black,
-          width: 3,
+    return GestureDetector(
+      onTap: () {
+        Get.to(
+            () => DetailsPage(
+                  index: index,
+                ),
+            transition: Transition.cupertino);
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          color: AppColors.primaryBlack,
+          borderRadius: BorderRadius.circular(30),
+          border: Border.all(
+            color: AppColors.primarySlimyGreen,
+            width: 4,
+          ),
         ),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            height: 220,
-            width: double.maxFinite,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(28),
-                topRight: Radius.circular(28),
-              ),
-              image: DecorationImage(
-                image: AssetImage(
-                  character.image.toString(),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              height: 30.h,
+              width: double.maxFinite,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(28),
+                  topRight: Radius.circular(28),
                 ),
-                fit: BoxFit.cover,
+                image: DecorationImage(
+                  image: NetworkImage(
+                    character.image.toString(),
+                  ),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: 10),
-                Text(
-                  character.name.toString(),
-                  style: kTextStyle,
-                ),
-                SizedBox(height: 5),
-                Text(
-                  character.status.toString(),
-                  style: kTextStyle,
-                ),
-                SizedBox(height: 5),
-                Text(
-                  character.location.toString(),
-                  style: kTextStyle,
-                ),
-              ],
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 0.5.w),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(height: 2.h),
+                  Center(
+                    child: Text(
+                      character.name.toString(),
+                      style: customTextstyle(),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  SizedBox(height: 3.h),
+                  Text(
+                    character.status.toString(),
+                    style: customTextstyle(),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: 5),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

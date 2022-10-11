@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rick_and_morty/screen/home/character_appbar.dart';
+import 'package:rick_and_morty/util/app_colors.dart';
 
 import 'character_sliver_grid.dart';
 
@@ -13,16 +14,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    double h = MediaQuery.of(context).size.height;
-    double w = MediaQuery.of(context).size.width;
     return Scaffold(
         body: CustomScrollView(
+      physics: const AlwaysScrollableScrollPhysics(),
       slivers: [
-        CharacterAppBar(),
-        // CharacterSliverGrid(),
-        // SliverToBoxAdapter(
-        //   child: CharacterAppBar(),
-        // ),
+        const CharacterAppBar(),
         SliverToBoxAdapter(
           child: CharacterSliverGrid(),
         ),
