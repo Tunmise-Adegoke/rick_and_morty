@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rick_and_morty/controller/character_controller.dart';
@@ -52,7 +50,7 @@ class CharacterCard extends StatelessWidget {
               height: 30.h,
               width: double.maxFinite,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(28),
                   topRight: Radius.circular(28),
                 ),
@@ -83,7 +81,7 @@ class CharacterCard extends StatelessWidget {
                     style: customTextstyle(),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: 5),
+                  const SizedBox(height: 5),
                 ],
               ),
             ),

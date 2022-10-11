@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:rick_and_morty/util/app_colors.dart';
-import 'package:rick_and_morty/util/constant.dart';
 
 class CharacterAppBar extends StatelessWidget {
   const CharacterAppBar({
@@ -31,7 +29,7 @@ class CharacterAppBar extends StatelessWidget {
         ),
       ),
 
-      shape: ContinuousRectangleBorder(
+      shape: const ContinuousRectangleBorder(
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(30),
           bottomRight: Radius.circular(30),

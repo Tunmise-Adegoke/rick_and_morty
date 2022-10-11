@@ -41,6 +41,7 @@ dependencies:
   http: ^0.13.4
   masonry_grid: ^1.0.0
   sizer: ^2.0.15
+  floating_bottom_navigation_bar: ^1.5.2
   
 
 dev_dependencies:

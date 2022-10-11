@@ -13,12 +13,12 @@ class EpisodeController extends GetxController {
     super.onInit();
   }
 
-  @override
   void fetchEpisodes() async {
     try {
       episode = await episodesServices.fetchEpisodes();
       isLoading(false);
     } on Exception catch (e) {
+      // ignore: avoid_print
       print(e);
     }
     update();

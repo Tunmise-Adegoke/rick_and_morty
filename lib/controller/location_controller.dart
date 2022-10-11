@@ -13,12 +13,12 @@ class LocationController extends GetxController {
     super.onInit();
   }
 
-  @override
   void fetchLocation() async {
     try {
       location = await locationServices.fetchLocation();
       isLoading(false);
     } on Exception catch (e) {
+      // ignore: avoid_print
       print(e);
     }
     update();

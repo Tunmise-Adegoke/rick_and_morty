@@ -20,6 +20,7 @@ class CharacterController extends GetxController {
       character = await charaterServices.fetchCharacter();
       isLoading(false);
     } on Exception catch (e) {
+      // ignore: avoid_print
       print(e);
     }
     update();

@@ -32,7 +32,7 @@ class CharacterSliverGrid extends StatelessWidget {
             vertical: 5.h,
           ),
           shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
+          physics: const  NeverScrollableScrollPhysics(),
           mainAxisSpacing: 25,
           crossAxisSpacing: 25,
           crossAxisCount: 2,

@@ -19,6 +19,7 @@ TextStyle smallTextStyle() {
       fontWeight: FontWeight.w400);
 }
 
+// ignore: non_constant_identifier_names
 TextStyle MediumTextStyle() {
   return TextStyle(
       fontFamily: 'CoromorantGaramond',
@@ -27,6 +28,7 @@ TextStyle MediumTextStyle() {
       fontWeight: FontWeight.w500);
 }
 
+// ignore: non_constant_identifier_names
 TextStyle LightMediumTextStyle() {
   return TextStyle(
       fontFamily: 'CoromorantGaramond',
@@ -35,6 +37,7 @@ TextStyle LightMediumTextStyle() {
       fontWeight: FontWeight.w500);
 }
 
+// ignore: non_constant_identifier_names
 TextStyle BigTextStyle() {
   return TextStyle(
       fontFamily: 'CoromorantGaramond',

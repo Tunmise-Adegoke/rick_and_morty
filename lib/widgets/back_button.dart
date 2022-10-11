@@ -15,7 +15,7 @@ class BackArrow extends StatelessWidget {
         radius: 30,
         backgroundColor: Colors.white.withOpacity(0.1),
         child: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_ios_new,
             color: AppColors.primaryWhite,
           ),

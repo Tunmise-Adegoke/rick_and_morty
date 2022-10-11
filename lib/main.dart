@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rick_and_morty/util/app_colors.dart';
 import 'package:sizer/sizer.dart';
-
-import 'screen/home/home.dart';
 import 'package:rick_and_morty/helper/dependencies.dart' as dep;
+
+import 'widgets/nav_bar.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,7 +15,7 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
     return Sizer(
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             scaffoldBackgroundColor: AppColors.primaryBlack,
           ),
-          home: HomePage(),
+          home: const NavBar(),
         );
       },
     );

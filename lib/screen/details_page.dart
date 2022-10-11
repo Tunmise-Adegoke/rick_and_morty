@@ -4,8 +4,6 @@ import 'package:rick_and_morty/controller/character_controller.dart';
 import 'package:rick_and_morty/controller/episode_controller.dart';
 import 'package:rick_and_morty/controller/location_controller.dart';
 import 'package:rick_and_morty/model/charaters.dart';
-import 'package:rick_and_morty/model/episodes.dart';
-import 'package:rick_and_morty/model/location.dart';
 import 'package:rick_and_morty/util/app_colors.dart';
 import 'package:rick_and_morty/util/constant.dart';
 import 'package:rick_and_morty/widgets/back_button.dart';
@@ -13,7 +11,7 @@ import 'package:rick_and_morty/widgets/back_button.dart';
 class DetailsPage extends StatefulWidget {
   final int index;
 
-  DetailsPage({Key? key, required this.index}) : super(key: key);
+  const DetailsPage({Key? key, required this.index}) : super(key: key);
 
   @override
   State<DetailsPage> createState() => _DetailsPageState();
@@ -27,14 +25,13 @@ class _DetailsPageState extends State<DetailsPage> {
   @override
   Widget build(BuildContext context) {
     Character character = characterController.character[widget.index];
-    Location location = locationController.location[widget.index];
-    Episodes episode = episodeController.episode[widget.index];
+    
     return Scaffold(
         appBar: AppBar(
-          leading: BackArrow(),
+          leading: const BackArrow(),
           elevation: 0,
           backgroundColor: AppColors.primaryBlack,
-          title: Text('Details'),
+          title: const  Text('Details'),
           centerTitle: true,
         ),
         body: Padding(
@@ -58,36 +55,30 @@ class _DetailsPageState extends State<DetailsPage> {
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 50,
-                ),
+                const SizedBox(height: 50),
                 Text(
                   character.name.toString(),
                   style: BigTextStyle(),
                 ),
-                SizedBox(
-                  height: 10,
-                ),
+                const SizedBox(height: 10),
                 Text(
                   character.status.toString(),
                   style: smallTextStyle(),
                 ),
-                SizedBox(
-                  height: 10,
-                ),
+                const SizedBox(height: 10),
                 Text(
                   character.gender.toString(),
                   style: MediumTextStyle(),
                 ),
-                SizedBox(
-                  height: 10,
+                const SizedBox(
+                  height: 10
                 ),
                 Text(
                   character.species.toString(),
                   style: MediumTextStyle(),
                 ),
-                SizedBox(
-                  height: 10,
+                const SizedBox(
+                  height: 10
                 ),
                 Text(
                   'From:',
@@ -97,8 +88,8 @@ class _DetailsPageState extends State<DetailsPage> {
                   character.origin!.name.toString(),
                   style: smallTextStyle(),
                 ),
-                SizedBox(
-                  height: 10,
+                const SizedBox(
+                  height: 10
                 ),
                 Text(
                   'Last seen: ',
@@ -109,9 +100,9 @@ class _DetailsPageState extends State<DetailsPage> {
                   style: smallTextStyle(),
                   textAlign: TextAlign.center,
                 ),
-                Container(
+                SizedBox(
                   child: ListView.builder(
-                      physics: NeverScrollableScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
                       itemBuilder: ((context, index) {
                         return ListTile(
